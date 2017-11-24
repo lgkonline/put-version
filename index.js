@@ -1,40 +1,41 @@
-const fs = require("fs");
-const path = require("path");
-const cheerio = require("cheerio");
+"use strict";
 
-const package = require(path.format({ dir: process.cwd(), base: "package.json" }));
+var fs = require("fs");
+var path = require("path");
+var cheerio = require("cheerio");
 
-const args = process.argv.slice(2);
+var npmPackage = require(path.format({ dir: process.cwd(), base: "package.json" }));
 
-let filePath;
+var args = process.argv.slice(2);
+
+var filePath = void 0;
 
 if (args[0]) {
     filePath = args[0];
 
-    fs.readFile(filePath, "utf8", (err, data) => {
+    fs.readFile(filePath, "utf8", function (err, data) {
         if (err) return console.error(err);
 
-        const $ = cheerio.load(data);
+        var $ = cheerio.load(data);
 
         function setVersion(elem, attr) {
-            $(elem).attr(attr, $(elem).attr(attr).split("?")[0] + "?version=" + package.version);
+            $(elem).attr(attr, $(elem).attr(attr).split("?")[0] + "?version=" + npmPackage.version);
         }
 
-        $("script[src]").each((i, elem) => {
+        $("script[src]").each(function (i, elem) {
             setVersion(elem, "src");
         });
 
-        $("link[href]").each((i, elem) => {
+        $("link[href]").each(function (i, elem) {
             setVersion(elem, "href");
         });
 
-        console.log(`Set version in ${filePath} to ${package.version}`);
+        console.log("Set version in " + filePath + " to " + npmPackage.version);
 
-        fs.writeFile(filePath, $.html(), "utf8", err => {
+        fs.writeFile(filePath, $.html(), "utf8", function (err) {
             if (err) console.error(err);
         });
     });
-}
-else {
+} else {
     console.error("You have to pass an input file like this: put-version index.html");
 }
