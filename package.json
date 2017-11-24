@@ -1,0 +1,31 @@
+{
+  "name": "put-version",
+  "version": "1.0.0",
+  "description": "A small tool to put the version from your package.json to all ressources in a HTML document.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js test.html"
+  },
+  "files": [
+    "index.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lgkonline/put-version.git"
+  },
+  "keywords": [
+    "version",
+    "cache",
+    "browser",
+    "tool"
+  ],
+  "author": "Lars / LGK",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lgkonline/put-version/issues"
+  },
+  "homepage": "https://github.com/lgkonline/put-version#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2"
+  }
+}
