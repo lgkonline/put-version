@@ -1,39 +1,38 @@
 {
-  "name": "put-version",
-  "version": "1.0.3",
-  "description": "A small tool to put the version from your package.json to all ressources in a HTML document.",
-  "main": "index.js",
-  "bin": {
-    "put-version": "./index.js"
-  },
-  "scripts": {
-    "test": "node index.js test.html",
-    "compile": "babel src/index.js -o index.js"
-  },
-  "files": [
-    "index.js"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lgkonline/put-version.git"
-  },
-  "keywords": [
-    "version",
-    "cache",
-    "browser",
-    "tool"
-  ],
-  "author": "Lars / LGK",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/lgkonline/put-version/issues"
-  },
-  "homepage": "https://github.com/lgkonline/put-version#readme",
-  "dependencies": {
-    "cheerio": "^1.0.0-rc.2"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1"
-  }
+    "name": "put-version",
+    "version": "1.0.8",
+    "description": "A small tool to put the version from your package.json to all ressources in a HTML document.",
+    "main": "index.js",
+    "scripts": {
+        "test": "node index.js test.html",
+        "compile": "babel src/index.js -o index.js",
+        "start": "node index.js"
+    },
+    "bin": "index.js",
+    "files": [
+        "./index.js"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lgkonline/put-version.git"
+    },
+    "keywords": [
+        "version",
+        "cache",
+        "browser",
+        "tool"
+    ],
+    "author": "Lars / LGK",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/lgkonline/put-version/issues"
+    },
+    "homepage": "https://github.com/lgkonline/put-version#readme",
+    "dependencies": {
+        "cheerio": "^1.0.0-rc.2"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-preset-env": "^1.6.1"
+    }
 }
