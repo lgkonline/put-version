@@ -1,12 +1,12 @@
 {
     "name": "put-version",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "description": "A small tool to put the version from your package.json to all ressources in a HTML document.",
     "main": "index.js",
     "scripts": {
-        "test": "node index.js test.html",
+        "test": "node src/index.js test.html",
         "compile": "babel src/index.js -o index.js",
-        "start": "node index.js"
+        "start": "node src/index.js"
     },
     "bin": "index.js",
     "files": [

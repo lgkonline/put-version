@@ -20,7 +20,14 @@ if (args[0]) {
         var $ = cheerio.load(data);
 
         function setVersion(elem, attr) {
-            $(elem).attr(attr, $(elem).attr(attr).split("?")[0] + "?version=" + npmPackage.version);
+            var splitted = $(elem).attr(attr).split("?");
+            var file = splitted[0];
+            var params = splitted[1];
+
+            // Only set version param when file doesn't already have params. Or it has version param.
+            if (!params || params.startsWith("version=")) {
+                $(elem).attr(attr, file + "?version=" + npmPackage.version);
+            }
         }
 
         $("script[src]").each(function (i, elem) {
